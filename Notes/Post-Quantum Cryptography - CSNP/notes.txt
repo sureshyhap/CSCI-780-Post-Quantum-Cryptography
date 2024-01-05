@@ -1,0 +1,114 @@
+https://www.youtube.com/watch?v=XYHmk2tpq1M&t=480
+
+Cryptography
+------------
+
+1) Confidentiality - restricting access of information
+
+2) Integrity - verifying that information has not been altered (accidentally or maliciously)
+
+3) Authentication - verifying the identity of a party
+
+Good Cryptography
+-----------------
+
+Depends on 3 things:
+
+1) Hard Math Problems. If you can solve that math problem, you can break the cryptography.
+
+2) Correct implementation of the algorithms
+
+3) Key Secrecy - Secret piece of info (key) used to uncover information is kept secret from adversaries
+
+Attackers will try to either: Solve the math problem, take advantage of an issue with the implementation, or try to obtain the key
+
+Public-Key Cryptography
+-----------------------
+
+Different from Symmetric Cryptography
+
+Symmetric: Encrypt AND Decrypt using the secret key
+
+Public-Key: Encrypt with public key and decrypt with private key
+
+Encrypting files is usually symmetric. But how do you use a single key when multiple parties want to look at the same information? -> Need Public Key Crypto
+
+PKC used whenever 2 or more parties need to communicate securely. Parties dont have to be be people; can be servers, browsers, API endpoints... Examples: HTTPS, Firewalls, Routers, Printers, SSH, Cryptocurrencies
+
+HTTP is not encrypted
+
+Quantum Computing
+-----------------
+
+New form of computation based off of Quantum Physics
+
+Harnesses Quantum Properties like Entanglement, Superposition, and Interference to solve problems in a completely new way. For some types of problems, quantum computers can solve them much faster than classical computers can
+
+PKC - One of these problems is factoring. Shor's Algorithm - quantum algorithm. RSA depends on the hardness of factoring (the Abelian hidden subgroup problem): Shor's breaks it with a powerful enough quantum computer.
+
+Symmetric C - Unstructured Search. Grover's algorithm - quantum algorithm. Quadratic speedup over best classical algos. To retain security must double the key sizes. Symm C is not broken, but is weakened.
+
+Quantum Cryptography (Different from Post-Quantum Cryptography)
+--------------------
+
+Based on laws of quantum mechanics (runs on quantum computers) rather than the hardness of math problems. Has security against quantum and classical attacks.
+
+Problem is that it is expensive and impractical.
+
+Post-Quantum Cryptography
+-------------------------
+
+Runs on classical computers and is secure against quantum and classical attacks.
+
+Similar to our current Public Key Crypto but it is based off of harder math problems (not even quantum computers can solve them efficiently)
+
+NIST Competition
+----------------
+
+Evaluating competition submissions to determine our new Public-Key Cryptography (Post Quantum Algo).
+
+5 levels of security.
+
+How to create a Post Quantum Algo?
+
+1) Identify hardness assumptions that are not broken by quantum computers. We had assumed factoring was hard for RSA but this is broken by quantum computers.
+
+2) Build cryptosystems based on these problems. Can be difficult to do because not every hard problem is 1-1 with a good cryptosystem. Should have 1-way hardness, small enough key sizes, be fast, scalable, and flexible.
+
+3) Prove its security against quantum and classical attacks.
+
+Why care since we're safe for now?
+----------------------------------
+
+- PQC Algos work on our classical computers. Also have hybrid algos that chain a PQC algo with a classical algo like Elliptic Curve crypto.
+
+- More secure against quantum attacks but also even more secure against classical attacks
+
+- It's difficult to know the exact time the quantum threat will occur so we should prepare early to be safe
+
+- Attackers are already storing our encrpyted info to decrypt later. So it's important to already be encrypting with PQ algos
+
+- Transitiioning cryptography takes many years
+
+- Some implementations may not be able to switch in time (ex. satellites that are in orbit can't be switched often (30 years) so need to instill a good system when you can update them)
+
+- Government has already started switching to PQC
+
+How can organizations start preparing now?
+------------------------------------------
+
+1) Increase cryptographic agility - the ability to quickly and seamlessly transition and update cryptographic algorithms
+
+2) Identify data that has a long shelf-life (credit card #s may not be relevant in 10 years but SSNs will be)
+
+3) Start testing the NIST finalists
+
+Finalist algorithms
+-------------------
+
+Lattice, code, multivariate, hash, isogeny ... is the type of math problem they are based on
+
+Math of PQC
+-----------
+
+Lattice-Based - efficient, simple, adaptable, fully homomorphic (can do computations on encrypted data), and secure but has large key sizes

@@ -1,0 +1,49 @@
+https://www.youtube.com/watch?v=XYHmk2tpq1M&t=480
+
+Cryptography
+------------
+
+1) Confidentiality - restricting access of information
+
+2) Integrity - verifying that information has not been altered (accidentally or maliciously)
+
+3) Authentication - verifying the identity of a party
+
+Good Cryptography
+-----------------
+
+Depends on 3 things:
+
+1) Hard Math Problems. If you can solve that math problem, you can break the cryptography.
+
+2) Correct implementation of the algorithms
+
+3) Key Secrecy - Secret piece of info (key) used to uncover information is kept secret from adversaries
+
+Attackers will try to either: Solve the math problem, take advantage of an issue with the implementation, or try to obtain the key
+
+Public-Key Cryptography
+-----------------------
+
+Different from Symmetric Cryptography
+
+Symmetric: Encrypt AND Decrypt using the secret key
+
+Public-Key: Encrypt with public key and decrypt with private key
+
+Encrypting files is usually symmetric. But how do you use a single key when multiple parties want to look at the same information? -> Need Public Key Crypto
+
+PKC used whenever 2 or more parties need to communicate securely. Parties dont have to be be people; can be servers, browsers, API endpoints... Examples: HTTPS, Firewalls, Routers, Printers, SSH, Cryptocurrencies
+
+HTTP is not encrypted
+
+Quantum Computing
+-----------------
+
+New form of computation based off of Quantum Physics
+
+Harnesses Quantum Properties like Entanglement, Superposition, and Interference to solve problems in a completely new way. For some types of problems, quantum computers can solve them much faster than classical computers can
+
+One of these problems is factoring. Shor's Algorithm - quantum algorithm. RSA depends on the hardness of factoring: Shor's breaks it with a powerful enough quantum computer.
+
+
