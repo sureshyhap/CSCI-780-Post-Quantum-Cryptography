@@ -111,4 +111,38 @@ Lattice, code, multivariate, hash, isogeny ... is the type of math problem they 
 Math of PQC
 -----------
 
-Lattice-Based - efficient, simple, adaptable, fully homomorphic (can do computations on encrypted data), and secure but has large key sizes
+Lattice-Based Cryptography
+--------------------------
+
+Efficient, simple, adaptable, fully homomorphic (can do computations on encrypted data), and secure but has large key sizes
+
+Lattice -> INTEGER linear combinations of some basis vectors. Orthogonal basis -> Good basis; nearly parallel vectors -> Bad basis
+
+Shortest Vector Problem - given a basis, find the shortest nonzero vector in the lattice; given a bad basis, this is NP-Hard (given 100s of dimensions)
+
+Code-Based Cryptography
+-----------------------
+
+Error correcting codes: maps that `correct` the error
+
+f(x + e) = x for small error e
+
+Fast to en/decrypt, hardness understood but large key sizes
+
+Multivariate Cryptography
+-------------------------
+
+Polynomial equations in multiple variables. Much faster than RSA, small signature size, operations are simple arithmetic but large key sizes and security analysis is diffcult
+
+Hash-Based Cryptography
+-----------------------
+
+Used in block chain. Uses a state. Keep track of the one-time keys.
+
+Isogeny-Based Cryptography
+--------------------------
+
+Maps between elliptic curves. Small keys sizes but slow and not well understood
+
+
+
