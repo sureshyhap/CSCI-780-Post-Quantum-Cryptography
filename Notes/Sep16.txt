@@ -1,0 +1,155 @@
+What is a quantum computer?
+
+Based on quantum mechanics
+
+Quantum bit can be 0 or 1 at the same time until read it -> then it becomes just 0 or 1
+
+Can do many parallel computations
+
+QC not good at sorting -> because sorting has more than 1 result
+
+QC good at prime factorization
+
+Prime multiplication: 17 x 23 -> simple
+
+Reversing this is hard (so it's a one-way function)
+
+RSA is closely related to prime factorization
+
+2 numbers ->  private key
+product -> public key
+
+prime numbers ~ 2048 bits
+
+QC can break RSA within seconds (future QCs at least)
+
+So we need alternative cryptosystems
+
+6 families of algos believed to be quantum-proof
+
+1) Lattice
+2) Code
+3) Hashed
+4) Noncommutative
+5) Multivariate
+6) Isogeny
+
+Lattice-based crypto
+--------------------
+
+Lattice field -> set of intersection points in a space. Defined by parallel and equidistant lines going in 2 directions each. Intersection points -> Lattice point.
+
+Need base vectors to define a lattice. Different bases for same lattice.
+
+Almost parallel -> bad base
+Almost orthogonal -> good base
+
+Find closest lattice point to your position. Easy in the two-dimensional space.
+
+250 dimensional space -> hard to find closest lattice point unless have good base. If only have bad base, its hard.
+
+GGH
+---
+
+Alice private key -> good base
+public key -> bad base
+
+IF bob wants to encrypt something, place a snail in space.
+
+250 dimensions to encode. Alice can decode it (find closest lattice) bc she has the good base (private key).
+
+Attacker only has bad public base.
+
+GGH is quantum-proof but not secure. But there are other lattice based methods.
+
+Subfamily of lattice methods -> Learning with Errors (LWE) methods.
+
+Have System of equations with 3 variables and 3 equations -> Gaussian elimination (even with mod equations).
+
+Add more equations -> overdefined (8 equations) -> unsolvable in general but some are solvable
+
+Add errors to right side of equations -> Errors are small compared to modulus. Then hide the errors by absorbing the errors into the right side values.
+
+LWE Problem -> can the errors be found without knowing x, y, and z? Easy if have x, y, z but if not can be done but is laborious
+
+LWE Trapdoor function
+
+Add errors easy. Finding errors is hard. Define Regev encryption.
+-> Alice private key is x, y, z values. Public key is erroneous system of equations.
+Bob tosses coin, kicks out some equations based on it. Then solve remaining equations. Encrpyt 0: add 1 (small error)
+Encrpyt 1: add 399 (big error)
+
+Alice can check if error is big and small easily. Thus detects 0s and 1s.
+
+This was to encode 1 bit but can extend it.
+
+Each column in equation can be vectors. So defines a vector field. Snail close to lattice = 0, far from lattice = 1.
+
+Code-based
+----------
+
+Error-correcting codes.
+
+Spaceship traveling away from Earth. Sending messages back. Errors occur. How can we avoid this. Can use parity bits. Or three-times code (redundant transmission).
+
+Parity -> error-detecting code
+Three-times code -> error-correcting code (not very efficient though. Waste of bandwidth)
+
+Linear error correcting codes
+
+5 bits gets multiplied by a matrix to get a 9 bit word. 2 errors can be corrected.
+
+Overhead of n bits: n / 2 errors can be corrected
+
+How does error correction work?
+
+Error correcting algorithms.
+
+Earth uses error correction algo to fix errors then inverse matrix multiply to get original data. Inefficient. But if choose the matrix properly, it's faster (good matrix). Bad ones slow.
+
+A good matrix can be turned into a bad one by multiplying by 2 blend matrices.
+
+McElliece
+---------
+BGB = Alice private key. Bad matrix = public key
+Bob multiplies with public key. Adds errors. Then sends to Alice. She applies good matrix and recovers plaintext.
+Attacker only has bad matrix to work with.
+Length of public key ~ 1MB. RSA only needs 2KB. But McElliece is quantum-proof
+
+----------------------------------------
+
+Alice possibly wants to buy an island. She flies to island. She wants to say yes or no and transmit. Both sender and receiver can cheat.
+
+Before she flies, she puts in 2 safes that says yes or no buy. She then sends combination of locks. -> private key
+
+Safes -> public key
+
+Can only be used once b/c she posts half of her private key.
+
+Replace safes by hashing function.
+replace private key with 2 random numbers.
+public key -> hash of random #s
+signature is random num 1 or 2
+
+Still can only be used once since posts half of her private key.
+
+These are hash-based signatures -> long sigs and long keys. But secure one.
+
+Non-commutative
+---------------
+
+Rubik's cube. Diffie-hellman.
+
+Multivariate
+------------
+
+Ladder problem
+
+Isogeny
+-------
+
+Based on a maze -> defined with elliptic curves. Based on a path you take in this maze.
+
+-----------------------------
+
+tealhq.com <- helps with resumes
